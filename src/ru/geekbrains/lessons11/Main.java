@@ -1,34 +1,50 @@
 package ru.geekbrains.lessons11;
 
 
-import java.util.Arrays;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        // Задача 1
-        Integer arr1[] = {1, 2, 3, 4, 5, 6, 7};
-        String arr2[] = {"A", "B", "C"};
-        swap(arr1, 1, 4);
-        swap(arr2, 0, 2);
+             // Задание 1.
+            List<String> words = Arrays.asList(
+                    "Роза", "Гвоздика", "Пион", "Посолнух", "Астра",
+                    "Астра", "Астра", "Пион", "Роза", "Роза",
+                    "Пион", "Пион", "Пион", "Роза", "Астра",
+                    "Гвоздика", "Гвоздика", "Роза ", "Пион", "Подсолнух"
+            );
 
-        // Задание 2
-        Box<Apple> boxWithApple = new Box<>(new Apple(), new Apple(), new Apple());
-        Box<Orange> boxWithOranges = new Box<>(new Orange(), new Orange());
-        Box<Orange> anotherBoxWithOranges = new Box<>();
+            Set<String> unique = new HashSet<>(words);
 
-        System.out.println("A box of apples weight " + boxWithApple.getWeight());
-        System.out.println("A box of oranges weight " + boxWithOranges.getWeight());
+            System.out.println("Первоначальный массив");
+            System.out.println(words.toString());
+            System.out.println("Уникальные слова");
+            System.out.println(unique.toString());
+            System.out.println("Частота встречаемости слов");
+            for (String key : unique) {
+                System.out.println(key + ": " + Collections.frequency(words, key));
+            }
 
-        System.out.println(boxWithApple.compare(boxWithOranges));
-    }
+        // Задание 2.
+        PhoneBook phoneBook = new PhoneBook();
 
+        phoneBook.add("Иванов", "+995543223351");
+        phoneBook.add("Петров", "+995543223351");
+        phoneBook.add("Сидоров", "+995554723351");
+        phoneBook.add("Орлов", "+995548533351");
+        phoneBook.add("Соколов", "+995545433351");
+        phoneBook.add("Иванов", "+995543252351");
+        phoneBook.add("Петров", "+995543297551");
+        phoneBook.add("Сидоров", "+995543325351");
+        phoneBook.add("Орлов", "+9955438763351");
+        phoneBook.add("Jones", "+995549873351");
+        phoneBook.add("Сидоров", "+995549543351");
+        System.out.println(phoneBook.get("Иванов"));
+        System.out.println(phoneBook.get("Петров"));
+        System.out.println(phoneBook.get("Сидоров"));
+        System.out.println(phoneBook.get("Орлов"));
+        System.out.println(phoneBook.get("Соколов"));
+        }
 
-    public static void swap(Object[] arr, int n1, int n2) {
-        System.out.println("Задание 1: " + Arrays.toString(arr));
-        Object sw = arr[n1];
-        arr[n1] = arr[n2];
-        arr[n2] = sw;
-        System.out.println("Меняет два элемента массива местами: " + Arrays.toString(arr) + "\n================================");
-    }
 }
+
