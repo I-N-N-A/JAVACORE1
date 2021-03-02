@@ -1,39 +1,36 @@
 package ru.geekbrains.lessons11;
 
-public class WeatherResponse {
+import java.io.Serializable;
 
+public class WeatherResponse implements Serializable {
+    private String city;
     private String date;
     private String weatherText;
-    private float temperature;
+    private Double temperature;
 
-    public String getDate() {
-        return date;
-    }
+    public String getCity() { return city; }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
+    public void setCity(String city) { this.city = city; }
 
-    public String getWeatherText() {
-        return weatherText;
-    }
+    public String getDate() { return date; }
 
-    public void setWeatherText(String weatherText) {
-        this.weatherText = weatherText;
-    }
+    public void setDate(String date) { this.date = date; }
 
-    public float getTemperature() {
-        return temperature;
-    }
+    public String getWeatherText() { return weatherText; }
 
-    public void setTemperature(float temperature) {
-        this.temperature = temperature;
-    }
+    public void setWeatherText(String weatherText) { this.weatherText = weatherText; }
+
+    public double getTemperature() { return temperature; }
+
+    public void setTemperature(double temperature) { this.temperature = temperature; }
+
     WeatherResponse(){
 
     }
+
     @Override
     public String toString(){
-        return " на дату " + date +  " днем ожидается " + weatherText + ", температура " + temperature +"C";
+        return String.format("В городе "+ city +" на дату " + date +
+                " днем ожидается " + weatherText + ", температура %.2f C", temperature);
     }
 }

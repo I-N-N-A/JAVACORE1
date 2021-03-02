@@ -2,6 +2,7 @@ package ru.geekbrains.lessons11;
 
 
 
+
 public class Main {
 
 
@@ -10,7 +11,6 @@ public class Main {
         UserInterface userInterface = new UserInterface();
         userInterface.runApplication();
     }
-
 
 
 }
